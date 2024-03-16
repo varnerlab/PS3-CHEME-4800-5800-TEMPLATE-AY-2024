@@ -13,7 +13,7 @@ $\mathbf{S}\in\mathbb{R}^{\mathcal{M}\times\mathcal{R}}$ is the stoichiometric m
 * The system has three streams: stream 1, stream 2, and stream 3. All chemical species can be transported in all streams, and no reaction occurs in them. Streams 1 and 2 enter the reactor and stream 3 exits it. The [Toy.net](data/Toy.net) reaction file describes the reaction set that occurs in the reactor.
 * We have measured all species mole flow rates in streams 1 and 2 and some of the species mole flow rates in stream 3. In particular, in stream 3, we measured $\dot{n}_{A_{1},3}$, $\dot{n}_{A_{2},3}$ and $\dot{n}_{B,3}$. However, the instrument used to measure the species mole flow rates for $A_{1}$ and $A_{2}$ in stream 3 was inaccurate. Therefore, we need to estimate a feasible measurement set for the system of linear algebraic equations, i.e., possible species mole flow rates for $A_{1}$ and $A_{2}$ in stream 3 that produce a feasible (non-negative) steady-state solution.
 * We have the following measurement bounds:
-   * $\dot{n}_{A_{1},3}\in\left\[3.0,10.0\right\]$
+   * $3.0\leq\dot{n}_{A_{1},3}\leq{10.0}$
    * $\dot{n}_{A_{2},3}\in\left\[0.0, 6.0\right\]$
    * $\dot{n}_{B,3} = 0$.
    * Assume we can sample the species mole flow rates in stream 3 in steps of `0.005`.
