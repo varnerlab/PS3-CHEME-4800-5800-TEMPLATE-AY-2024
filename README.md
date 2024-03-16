@@ -14,7 +14,7 @@ $\mathbf{S}\in\mathbb{R}^{\mathcal{M}\times\mathcal{R}}$ is the stoichiometric m
 * We measured all species mole flow rates in streams 1 and 2 and some of the species mole flow rates in stream 3. In particular, in stream 3, we measured $\dot{n}_{A_{1},3}$, $\dot{n}_{A_{2},3}$ and $\dot{n}_{B,3}$. However, the instrument used to measure the species mole flow rates for $A_{1}$ and $A_{2}$ in stream 3 was inaccurate. Therefore, we need to estimate a feasible measurement set using the system of linear algebraic equations, i.e., possible species mole flow rates for $A_{1}$ and $A_{2}$ in stream 3 that produce a feasible (non-negative) steady-state solution.
 * We have the following measurement bounds: $3.0\leq\dot{n}_{A_{1},3}\leq{10.0}$, $0.0\leq\dot{n}_{A_{2},3}\leq{6.0}$ and $\dot{n}_{B,3} = 0$. Assume we can sample the species mole flow rates in stream 3 in steps of `0.005`.
 
-## Task
+## Task 1
 Complete the implementation of the `runme()` function in the `runme_task_1.jl` script to estimate feasible measurements for 
 $\dot{n}_{A_{1},3}$ and $\dot{n}_{A_{2},3}$ such that the system of linear algebraic equations emits feasible (non-negative) steady-state solutions. 
 
@@ -25,4 +25,4 @@ $\dot{n}_{A_{1},3}$ and $\dot{n}_{A_{2},3}$ such that the system of linear algeb
 * The `runme()` function takes no arguments. It returns a binary array `frame::Array{Int64,2}` of size `1401`$\times$`1201` where `frame[i,j] = 1` if the measurement set produced a feasible steady-state solution, i.e., all values in the solution are non-negative, and `frame[i,j] = 0` otherwise.
 
 * After implementing the `runme()` function, execute the `runme_task_1.jl` script to estimate the feasible measurement set for the system of linear algebraic equations. The script will save an image of the `frame` array to the `myimages` directory. 
-* Once you have generated your test image, you can verify its correctness using the `testme_task_1.jl` script. This script compares the image you generated with the correct image and performs a few other checks. If the test script passes all tests, you have successfully completed the problem.
+* Once you have generated your test image, you can verify its correctness using the `testme_task_1.jl` script. This script compares the image you generated with the correct image and performs a few other checks. If the test script passes all tests, you have completed the problem.
