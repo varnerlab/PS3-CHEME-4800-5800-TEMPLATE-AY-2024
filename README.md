@@ -19,7 +19,7 @@ Complete the implementation of the `runme()` function in the `runme_task_1.jl` s
 $\dot{n}_{A_{1},3}$ and $\dot{n}_{A_{2},3}$ such that the system of linear algebraic equations emits feasible (non-negative) steady-state solutions. 
 
 * The `runme()` function calls the `_my_system_setup()` function to set up the system of linear algebraic equations and then tests different combinations of $\dot{n}_{A_{1},3}$ and $\dot{n}_{A_{2},3}$ by solving the system of linear algebraic equations.
-    * The `_my_system_setup()` function returns the system matrix in the $\mathbf{A}$ variable and the columns of the system matrix that correspond to the measured species mole flow the $\mathbf{B}$ variable. Finally, the function returns the measurement vector in the $\dot{\mathbf{n}}$ variable. 
+    * The `_my_system_setup()` function returns the system matrix in the $\mathbf{A}$ variable and the columns of the system matrix that correspond to the measured species mole flow in the $\mathbf{B}$ variable. Finally, the function returns the measurement vector in the $\dot{\mathbf{n}}$ variable. 
     * You can use whatever solution method you want to test different combinations of $\dot{n}_{A_{1},3}$ and $\dot{n}_{A_{2},3}$. However, the system matrix is __not__ diagonally dominant. 
 
 * The `runme()` function takes no arguments. It returns a binary array `frame::Array{Int64,2}` of size `1401`$\times$`1201` where `frame[i,j] = 1` if the measurement set produced a feasible steady-state solution, i.e., all values in the solution are non-negative, and `frame[i,j] = 0` otherwise. `A1` should be the row dimension, and `A2` should be the column dimension of the `frame` array. 
