@@ -83,16 +83,31 @@ function runme()
     (A, B, ṅ) = _my_system_setup();
 
     # TODO: setup two arrays of values for A1 and A2 measurements -
-    A1 = nothing;
-    A2 = nothing;
+    A1 = range(3.0, stop=10.0, step=0.005) |> collect;
+    A2 = range(0.0, stop=6.0, step=0.005) |> collect;
 
     # TODO: initialize the frame, this will hold the results.
     # it should have A1 as the rows and A2 as the columns.
-    frame = nothing;
+    frame = Array{Int64,2}(undef, length(A1), length(A2));
 
     # TODO: main loop. You will loop over A1 and A2 and solve the system of equations.
     # If the solution is feasible, then the frame should be 1, otherwise 0.
-    throw(ArgumentError("You need to implement the main loop!"));
+    # throw(ArgumentError("You need to implement the main loop!"));
+
+    # qr decomposition -
+    Q, R = qr(A);
+
+    for i ∈ eachindex(A1)
+        ṅ[15] = A1[i];
+        for j ∈ eachindex(A2)
+            ṅ[16] = A2[j];
+            
+            # solve the system of equations -
+            b = -B * ṅ;
+            x = R \ (transpose(Q) * (b));
+            frame[i,j] = any((round.(x, digits=3)) .< 0) ? 0 : 1;
+        end
+    end
 
     # return -
     return frame;
@@ -102,4 +117,4 @@ end
 frame = runme();
 
 # TODO: uncomment the following line to save the frame image to disk -
-# save(File{format"JPEG"}(joinpath(_PATH_TO_MY_IMAGES, "Test.jpeg")), Gray.(frame));
+save(File{format"JPEG"}(joinpath(_PATH_TO_MY_IMAGES, "Test.jpeg")), Gray.(frame));
